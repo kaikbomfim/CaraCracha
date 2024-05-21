@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Painel do Administrador</title>
+    <link rel="stylesheet" href="../static/styles/admin.css" />
+    <script src="../static/styles/fonts/font-awesome.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <nav>
+        <ul>
+          <li>
+            <a href="/admin" class="logo">
+              <img src="../static/Files/Resources/admin_icon.jpg" />
+              <span class="nav-item">Admin</span>
+            </a>
+          </li>
+          <li>
+            <a href="/admin">
+              <i class="fa-solid fa-school"></i>
+              <span class="nav-item">Painel</span>
+            </a>
+          </li>
+          <li>
+            <a href="/admin/add_user">
+              <i class="fa-solid fa-database"></i>
+              <span class="nav-item">Adicionar Aluno</span>
+            </a>
+          </li>
+          <li>
+            <a href="javascript:location.reload();">
+              <i class="fa-solid fa-chart-bar"></i>
+              <span class="nav-item">Registros de Presença</span>
+            </a>
+          </li>
+          <li>
+            <a href="/admin_login" class="logout">
+              <i class="fa-solid fa-right-from-bracket"></i>
+              <span class="nav-item">Sair</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <section class="attendance">
+        <div class="attendance-list">
+          <h1>Lista do Dia</h1>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>ID (Matrícula)</th>
+                <th>Nome</th>
+                <th>Curso de Graduação</th>
+                <th>Frequência Total</th>
+                <th>Horário da Última Frequência</th>
+                <th>Ano</th>
+                <th>Tempo Decorrido (em hrs.)</th>
+              </tr>
+            </thead>
+            {% for i in range(data|length) %}
+            <tbody>
+              <tr>
+                <td>{{ data[i][0]['id'] }}</td>
+                <td>{{ data[i][0]['name'] }}</td>
+                <td>{{ data[i][0]['major'] }}</td>
+                <td>{{ data[i][0]['total_attendance'] }}</td>
+                <td>{{ data[i][0]['last_attendance_time'] }}</td>
+                <td>{{ data[i][0]['year'] }}</td>
+                <td>{{ data[i][2] // 3600 }}</td>
+              </tr>
+            </tbody>
+            {% endfor %}
+          </table>
+        </div>
+      </section>
+      <form method="post">
+        <button
+          onclick="location.href='/admin/admin_attendance_list'"
+          class="button_student"
+          name="button_student"
+          value="VALUE1"
+        >
+          Limpar Lista de Frequência dos Alunos
+        </button>
+        <button
+          onclick="location.href='/admin/admin_attendance_list'"
+          class="button_admin"
+          name="button_admin"
+          value="VALUE2"
+        >
+          Limpar Lista de Frequência Acima
+        </button>
+      </form>
+    </div>
+  </body>
+</html>

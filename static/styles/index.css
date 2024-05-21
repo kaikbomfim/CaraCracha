@@ -1,0 +1,174 @@
+/*
+ @import url("../styles/fonts/More-Sugar.ttf");
+* {
+    margin: 5px 5px;
+    padding: 0px 5px;
+    font-family: "More Sugar", sans-serif;
+  }
+  
+  body {
+    background-color: #8c92ac;
+    background-image: url("background.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  
+  h1 {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-weight: bolder;
+  }
+  
+  h3 {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-weight: bolder;
+  }
+  
+  img {
+    width: 75%;
+  }
+  
+  .mainFrame {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 95%;
+}
+  
+  
+  .buttons {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .student_button,
+  .admin_button,
+  .student_attendance_button {
+    border-radius: 10px;
+    padding: 20px 40px;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: white;
+    color: #7ED957;
+    transition-duration: 0.4s;
+    border-color: #7ED957;
+    padding: 15px 10px;
+  }
+  
+  .student_button:hover,
+  .admin_button:hover,
+  .student_attendance_button:hover {
+    background-color: #7ED957;
+    color: white;
+    border-color: #fff;
+    cursor: pointer;
+  }
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
+
+h1, p {
+    margin: 0;
+    color: #fff;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    font-family: 'Nunito sans', sans-serif;
+    overflow: hidden;
+    margin-top: 0;   
+}
+
+main {
+    display: flex;
+    flex-wrap: nowrap;
+    width: 100%;
+    height: 100%;
+}
+
+section {
+    height: 100%;
+}
+
+section button {
+    border: none;
+    background-color: #40A578;
+    color: white;
+    padding: 10px;
+    border-radius: 8px;
+    font-weight: 700;
+    transition: all 250ms;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+section button:hover {
+    background-color: #9DDE8B;
+    transform: translateY(-5px);
+}
+
+section.left {
+  width: 77%;
+  > img {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+section.right {
+  background-color: #006769;
+  width: 23%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  > .form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 80%;
+
+      > h1 {
+          font-weight: 800;
+          
+      }
+
+      > p {
+          font-size: 12px;
+          color: rgb(255, 255, 255, 0.6);
+          font-weight: bolder;
+      }
+
+      > .buttons {
+          margin-top: 32px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 6px;
+          width: 100%;
+
+          > p {
+              font-size: 12px;
+              width: 10%;
+              text-align: center;
+          }
+      }
+  }
+}
+
+.divisor {
+    margin: 16px 0;
+    width: 100%;
+    height: 1px;
+    background-color: rgba(0, 0, 0, 0.2);
+}

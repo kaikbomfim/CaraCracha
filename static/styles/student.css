@@ -1,0 +1,103 @@
+* {
+    margin: 5px 5px;
+    padding: 0px 5px;
+  }
+  
+  body {
+    background-color: #7ED957;
+    margin: 0px auto;
+  }
+  
+  h1 {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    color: #fff;
+  }
+  
+  .row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .col-lg-4 {
+    margin: 1% 1%;
+    width: 80%;
+    white-space: nowrap;
+  }
+  
+  .col-lg-8 {
+    margin: auto;
+    width: 80%;
+    padding: 10px;
+  }
+  
+  .student-profile .card {
+    border-radius: 10px;
+    border: 1px solid #000;
+  }
+  
+  .student-profile .card .card-header .profile_img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    margin: 10px auto;
+    border: 10px solid #7ED957;
+    border-radius: 50%;
+  }
+  
+  .student-profile .card h3 {
+    font-size: 20px;
+    font-weight: 700;
+  }
+  
+  .student-profile .card p {
+    font-size: 16px;
+    color: #000;
+  }
+  
+  .student-profile .table th,
+  .student-profile .table td {
+    font-size: 14px;
+    padding: 5px 10px;
+    color: #000;
+  }
+
+  span {
+    padding-left: 0px;
+    margin-left: 0px;
+  }
+  
+  button {
+    padding: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: white;
+    color: #7ED957;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    border: 1px solid #7ED957;
+    border-radius: 10px;
+    margin: 10px;
+  }
+  
+  button:hover {
+    background: #7ED957;
+    color: #fff;
+    transition: 0.5s;
+    border: 1px solid #fff;
+  }
+  
+  .back, .delete, .save, .exit {
+    margin-right: 10px;
+    border-radius: 10px;
+    border: 1px solid #000;
+  }
+
+  .exit {
+    padding: 10px 50px;
+  }
+  

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CaraCrachá</title>
+    <link rel="stylesheet" href="../static/styles/index.css" />
+  </head>
+  <body>
+    <main>
+      <section class="left">
+        <img src="{{url_for('video')}}" />
+      </section>
+      <section class="right">
+        <div class="form">
+          <h1>LOGIN</h1>
+          <p>Faça login no CaraCrachá</p>
+          <div class="buttons">
+            <a href="student_login">
+              <button>Aluno</button>
+            </a>
+            <p>ou</p>
+            <a href="admin_login">
+              <button>Administrador</button>
+            </a>
+          </div>
+          <div class="divisor"></div>
+          <a href="student_attendance_list">
+            <button style="width: 100%;">Lista de frequência</button>
+          </a>
+        </div>
+      </section>
+    </main>
+    
+    
+  </body>
+</html>

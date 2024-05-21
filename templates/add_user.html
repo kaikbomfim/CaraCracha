@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Painel do Administrador</title>
+    <link rel="stylesheet" href="../static/styles/admin.css" />
+    <script
+      src="../static/styles/fonts/font-awesome.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="../static/styles/add_user.css" />
+  </head>
+  <body>
+    <div class="container">
+      <nav>
+        <ul>
+          <li>
+            <a href="/admin" class="logo">
+              <img src="../static/Files/Resources/admin_icon.jpg" />
+              <span class="nav-item">Admin</span>
+            </a>
+          </li>
+          <li>
+            <a href="/admin">
+              <i class="fa-solid fa-school"></i>
+              <span class="nav-item">Painel</span>
+            </a>
+          </li>
+          <li>
+            <a href="javascript:location.reload();">
+              <i class="fa-solid fa-database"></i>
+              <span class="nav-item">Adicionar Aluno</span>
+            </a>
+          </li>
+          <li>
+            <a href="admin_attendance_list">
+              <i class="fa-solid fa-chart-bar"></i>
+              <span class="nav-item">Registros de Presença</span>
+            </a>
+          </li>
+          <li>
+            <a href="/admin_login" class="logout">
+              <i class="fa-solid fa-right-from-bracket"></i>
+              <span class="nav-item">Sair</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <br />
+      <br />
+      <section class="container1">
+        <header>Adicionar Aluno</header>
+        <form
+          action="/admin/add_user"
+          method="post"
+          class="form"
+          enctype="multipart/form-data"
+        >
+          <div class="input-box">
+            <label for="id">ID (matrícula)</label>
+            <input
+              type="text"
+              placeholder="Digite o ID (matrícula) do aluno"
+              name="id"
+              id="id"
+              required
+            />
+          </div>
+          <div class="input-box">
+            <label for="full_name">Nome Completo</label>
+            <input
+              type="text"
+              placeholder="Digite o nome completo"
+              name="full_name"
+              id="full_name"
+              required
+            />
+          </div>
+          <div class="input-box">
+            <label for="password">Senha</label>
+            <input
+              type="password"
+              placeholder="Digite a senha"
+              name="password"
+              id="password"
+              required
+            />
+          </div>
+          <div class="input-box">
+            <label for="email">E-mail</label>
+            <input
+              type="text"
+              placeholder="Digite o e-mail"
+              name="email"
+              id="email"
+              required
+            />
+          </div>
+          <div class="column">
+            <div class="input-box">
+              <label for="phone">Telefone</label>
+              <input
+                type="text"
+                placeholder="Digite o número de telefone"
+                name="phone"
+                id="phone"
+                required
+              />
+            </div>
+            <div class="input-box">
+              <label for="birthdate">Data de Nascimento</label>
+              <input
+                type="date"
+                placeholder="Informe a data de nascimento"
+                name="birthdate"
+                id="birthdate"
+                required
+              />
+            </div>
+          </div>
+          <div class="input-box address">
+            <label>Endereço</label>
+            <div class="column">
+              <input
+                type="text"
+                placeholder="Informe sua cidade"
+                name="city"
+                required
+              />
+              <div class="select-box">
+                <select name="country">
+                  <option hidden>País</option>
+                  <option>Argentina</option>
+                  <option>Bolívia</option>
+                  <option>Brasil</option>
+                  <option>Chile</option>
+                  <option>Colômbia</option>
+                  <option>Equador</option>
+                  <option>Guiana</option>
+                  <option>Paraguai</option>
+                  <option>Peru</option>
+                  <option>Suriname</option>
+                  <option>Uruguai</option>
+                  <option>Venezuela</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="input-box">
+            <label for="major">Curso de Graduação</label>
+            <input
+              type="text"
+              placeholder="Informe o curso de graduação"
+              name="major"
+              id="major"
+              required
+            />
+          </div>
+          <div class="input-box">
+            <label for="starting_year">Ano de Ingresso</label>
+            <input
+              type="number"
+              placeholder="Informe o ano de ingresso"
+              name="starting_year"
+              id="starting_year"
+              required
+            />
+          </div>
+          <div class="input-box">
+            <label for="year">Ano Atual</label>
+            <input
+              type="number"
+              placeholder="Informe o ano atual"
+              name="year"
+              id="year"
+              required
+            />
+          </div>
+          <div class="input-box">
+            <label for="standing">Desempenho Acadêmico</label>
+            <input
+              type="text"
+              placeholder="Informe o desempenho acadêmico (B - Bom/M - Médio/R - Regular/P - Péssimo)"
+              name="standing"
+              id="standing"
+              required
+            />
+          </div>
+          <div class="input-box">
+            <label for="total_attendance">Frequência Total</label>
+            <input
+              type="number"
+              placeholder="Informe a quantidade de presenças"
+              name="total_attendance"
+              id="total_attendance"
+              required
+            />
+          </div>
+          <div class="column">
+            <div class="input-box">
+              <label for="last_attendance_date"
+                >Última Data de Frequência</label
+              >
+              <input
+                type="date"
+                placeholder="Informe a última data de frequência (AAAA-MM-DD)"
+                name="last_attendance_date"
+                id="last_attendance_date"
+                required
+              />
+            </div>
+            <div class="input-box">
+              <label for="last_attendance_time"
+                >Último Horário de Frequência</label
+              >
+              <input
+                type="time"
+                placeholder="Informe o último horário de frequência (HH:MM:SS)"
+                name="last_attendance_time"
+                id="last_attendance_time"
+                required
+              />
+            </div>
+          </div>
+          <div class="input-box">
+            <label for="content">Observações</label>
+            <input
+              type="textarea"
+              placeholder="Digite qualquer observação"
+              name="content"
+              id="content"
+              required
+            />
+          </div>
+          <div class="input-box">
+            <label for="image">Adicionar Imagem</label>
+            <input
+              type="file"
+              placeholder="Adicione a nova imagem do aluno"
+              name="image"
+              id="image"
+              required
+            />
+          </div>
+          <button>Enviar</button>
+        </form>
+      </section>
+    </div>
+    <script src="../static/styles/fonts/jquery.js"></script>
+    <script type="text/javascript" src="../static/styles/fonts/jquery.mask.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function () {
+        var phone = $("#phone");
+        phone.mask('(00) 0 0000-0000');
+      });
+    </script>
+  </body>
+</html>

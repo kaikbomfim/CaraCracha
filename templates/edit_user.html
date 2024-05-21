@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CaraCrachá</title>
+    <!--<link rel="stylesheet" href="../static/styles/bootstrap.css" />-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/styles/fonts/Lato.css" />
+    <link rel="stylesheet" href="../static/styles/student.css" />
+    <script src="../static/styles/fonts/font-awesome.js"></script>
+    <script src="../static/styles/fonts/jquery.js"></script>
+    <script type="text/javascript">
+      function saveEdits() {
+        var editElem = {
+          name: document.getElementById("name").innerHTML,
+          id: document.getElementById("id").innerHTML,
+          birthdate: document.getElementById("birthdate").innerHTML,
+          address: document.getElementById("address").innerHTML,
+          phone: document.getElementById("phone").innerHTML,
+          email: document.getElementById("email").innerHTML,
+          major: document.getElementById("major").innerHTML,
+          starting_year: document.getElementById("starting_year").innerHTML,
+          standing: document.getElementById("standing").innerHTML,
+          year: document.getElementById("year").innerHTML,
+          total_attendance:
+            document.getElementById("total_attendance").innerHTML,
+          last_attendance_time: document.getElementById("last_attendance_time")
+            .innerHTML,
+          hoursElapsed: document.getElementById("hoursElapsed").innerHTML,
+          content: document.getElementById("content").innerHTML,
+        };
+
+        localStorage.setItem("userEdits", JSON.stringify(editElem));
+
+        data = localStorage.getItem("userEdits");
+
+        console.log(data);
+
+        $.ajax({
+          url: "/admin/save_changes",
+          type: "POST",
+          contentType: "application/json",
+          data: data,
+          success: function (response) {
+            console.log("Dados enviados com sucesso!");
+          },
+          error: function (error) {
+            console.log(error);
+          },
+        });
+      }
+
+      function delete_user() {
+        var id = document.getElementById("id").innerHTML;
+
+        localStorage.setItem("userId", JSON.stringify(id));
+
+        data = localStorage.getItem("userId");
+
+        console.log(data);
+
+        $.ajax({
+          url: "/admin/delete_user",
+          type: "POST",
+          contentType: "application/json",
+          data: data,
+          success: function (response) {
+            console.log("Dado enviado com sucesso!");
+          },
+          error: function (error) {
+            console.log(error);
+          },
+        });
+      }
+    </script>
+  </head>
+
+  <body>
+    <h1>Editar Perfil</h1>
+    <div class="student-profile py-4">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-5">
+            <div class="card shadow-sm">
+              <div class="card-header bg-transparent text-center">
+                <img
+                  src="{{ url_for('static', filename='Files/Images/' + data.studentInfo.id + '.png')}}"
+                  alt="foto do aluno"
+                  class="profile_img"
+                />
+                <h3 contenteditable id="name">{{ data.studentInfo.name }}</h3>
+              </div>
+              <div class="card-body">
+                <p class="mb-0">
+                  <strong class="pr-1">ID do Aluno:</strong>
+                  <span contenteditable id="id">{{ data.studentInfo.id }}</span>
+                </p>
+                <p class="mb-0">
+                  <strong class="pr-1">Data de Nascimento:</strong>
+                  <span contenteditable id="birthdate"
+                    >{{ data.studentInfo.birthdate }}</span
+                  >
+                </p>
+                <p class="mb-0">
+                  <strong class="pr-1">Endereço:</strong>
+                  <span contenteditable id="address"
+                    >{{ data.studentInfo.address }}</span
+                  >
+                </p>
+                <p class="mb-0">
+                  <strong class="pr-1">Telefone:</strong>
+                  <span contenteditable id="phone"
+                    >{{ data.studentInfo.phone }}</span
+                  >
+                </p>
+                <p class="mb-0">
+                  <strong class="pr-1">E-mail:</strong>
+                  <span contenteditable id="email"
+                    >{{ data.studentInfo.email }}</span
+                  >
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-8">
+            <div class="card shadow-sm">
+              <div class="card-header bg-transparent border-0">
+                <h3 class="mb-0">
+                  <i class="fa-solid fa-clone pr-1"></i>
+                  Informações Gerais
+                </h3>
+              </div>
+              <div class="card-body pt-0">
+                <table class="table table-bordered">
+                  <tr>
+                    <th width="30%">Curso de Graduação</th>
+                    <td contenteditable id="major">
+                      {{ data.studentInfo.major }}
+                    </td>
+                  </tr>
+                  <tr>
+                    <th width="30%">Ano de Ingresso</th>
+                    <td contenteditable id="starting_year">
+                      {{ data.studentInfo.starting_year }}
+                    </td>
+                  </tr>
+                  <tr>
+                    <th width="30%">Desempenho Acadêmico</th>
+                    <td contenteditable id="standing">
+                      {{ data.studentInfo.standing }}
+                    </td>
+                  </tr>
+                  <tr>
+                    <th width="30%">Ano Atual</th>
+                    <td contenteditable id="year">
+                      {{ data.studentInfo.year }}
+                    </td>
+                  </tr>
+                  <tr>
+                    <th width="30%">Frequência Total</th>
+                    <td contenteditable id="total_attendance">
+                      {{ data.studentInfo.total_attendance }}
+                    </td>
+                  </tr>
+                  <tr>
+                    <th width="30%">Horário da Última Frequência</th>
+                    <td contenteditable id="last_attendance_time">
+                      {{ data.studentInfo.last_attendance_time }}
+                    </td>
+                  </tr>
+                  <tr>
+                    <th width="30%">Tempo Decorrido</th>
+                    <td contenteditable id="hoursElapsed">
+                      {{ data.lastLogin }}
+                    </td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <div style="height: 26px"></div>
+
+          <div class="card shadow-sm">
+            <div class="card-header bg-transparent border-0">
+              <h3 class="mb-0">
+                <i class="fa-solid fa-clone pr-1"></i>
+                Aviso
+              </h3>
+            </div>
+            <div class="card-body pt-0">
+              <p contenteditable id="content">{{ data.studentInfo.content }}</p>
+            </div>
+          </div>
+          <button class="save" onclick="saveEdits()">Salvar Alterações</button>
+          <span></span>
+          <button class="delete" onclick="delete_user()">Deletar</button>
+          <span></span>
+          <button class="back" onclick="window.location.href='/admin'">
+            Voltar
+          </button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

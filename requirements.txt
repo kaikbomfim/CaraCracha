@@ -1,0 +1,11 @@
+cmake
+dlib
+face-recognition
+cvzone
+firebase-admin
+opencv-python==4.5.4.60
+flask==2.2.5
+numpy==1.21.6
+pandas==1.3.5
+matplotlib==3.5.3
+seaborn==0.12.1

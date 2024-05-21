@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista do Dia</title>
+    <link rel="stylesheet" href="../static/styles/admin.css">
+</head>
+<body>
+    <div class="container">
+        <section class="attendance">
+            <div class="attendance-list">
+                <button class="home_button" onclick="window.location.href='/'">
+                Início</button>
+                <h1>Lista do Dia</h1>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>ID (Matrícula)</th>
+                            <th>Nome</th>
+                            <th>Curso de Graduação</th>
+                            <th>Frequência Total</th>
+                            <th>Horário da Última Frequência</th>
+                            <th>Ano</th>
+                            <th>Tempo Decorrido (em hrs.)</th>
+                        </tr>
+                    </thead>
+                    {% for i in range(data|length) %}
+                    <tbody>
+                        <tr>
+                            <td>{{ data[i][0]['id'] }}</td>
+                            <td>{{ data[i][0]['name'] }}</td>
+                            <td>{{ data[i][0]['major'] }}</td>
+                            <td>{{ data[i][0]['total_attendance'] }}</td>
+                            <td>{{ data[i][0]['last_attendance_time'] }}</td>
+                            <td>{{ data[i][0]['year'] }}</td>
+                            <td>{{ data[i][2] // 3600 }}</td>
+                        </tr>
+                    </tbody>
+                    {% endfor %}
+                </table>
+            </div>
+        </section>
+    </div>
+</body>
+</html>

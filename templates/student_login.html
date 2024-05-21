@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../static/styles/login.css" />
+    <title>Login</title>
+  </head>
+  <body>
+    <div class="center">
+      <h1>Login</h1>
+      <form action="/student_login" method="post">
+        <div class="txt_field">
+          <input type="text" name="id_number" required />
+          <span></span>
+          <label>ID (matrícula)</label>
+        </div>
+        <div class="txt_field">
+          <input type="email" name="email" required />
+          <span></span>
+          <label>Email</label>
+        </div>
+        <div class="txt_field">
+          <input type="password" name="password" required />
+          <span></span>
+          <label>Senha</label>
+        </div>
+        <input type="submit" value="Login" />
+        <div class="bottom_text">
+          Esqueceu a senha? Por favor, entre em contato com seu professor ou
+          equipe de TI.
+          <br />
+        </div>
+        <div class="bottom_text">
+          {% if data %} {{ data }} {% endif %}
+          <br />
+        </div>
+      </form>
+      <button onclick="window.location.href='/'">Início</button>
+    </div>
+  </body>
+</html>
