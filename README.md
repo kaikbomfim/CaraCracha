@@ -16,7 +16,7 @@
 O CaraCrachá é uma aplicação web feita em Python que integra ferramentas como Flask, Firebase (banco de dados) e as bibliotecas FaceRecognition e OpenCV
 para emular um sistema de registro de frequência escolar dos estudantes por meio do reconhecimento facial.
 
-Confira o vídeo de demonstração da aplicação clicando [aqui]().
+Confira o vídeo de demonstração da aplicação clicando [aqui](https://www.youtube.com/watch?v=NHjxNREKMbA).
 
 ## Configurações
 
